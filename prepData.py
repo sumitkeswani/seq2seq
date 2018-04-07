@@ -5,10 +5,8 @@ import random
 def prepareData():
 	input_lang, output_lang, pairs = utils.readLangs()
 	print("Read %s sentence pairs" % len(pairs))
-
 	pairs = filterData.filterPairs(pairs)
 	print("Trimmed to %s sentence pairs" % len(pairs))
-
 	print("Counting words...")
 	for pair in pairs:
 		input_lang.addSentence(pair[0])
@@ -20,4 +18,4 @@ def prepareData():
 
 input_lang, output_lang, pairs = prepareData()
 
-print(pairs[0])
+print(random.choice(pairs))
