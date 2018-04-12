@@ -1,6 +1,8 @@
 import Lang
 import unicodedata
 import re
+import time
+import math
 
 # Turn a Unicode string to plain ASCII, thanks to
 # http://stackoverflow.com/a/518232/2809427
@@ -30,3 +32,17 @@ def readLangs():
 	output_lang = Lang.Lang("fra")
 
 	return input_lang, output_lang, pairs
+
+
+def asMinutes(s):
+    m = math.floor(s / 60)
+    s -= m * 60
+    return '%dm %ds' % (m, s)
+
+
+def timeSince(since, percent):
+    now = time.time()
+    s = now - since
+    es = s / (percent)
+    rs = es - s
+    return '%s (- %s)' % (asMinutes(s), asMinutes(rs))
